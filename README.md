@@ -15,6 +15,7 @@
 
 ## Prints
 
-    Quick Note: The 2 files converted had about 56MB, 500K+ rows each and after the conversion using gzip compression they had about 17MB.
+    Quick Note: The 2 files converted had about 56MB, 500K+ rows each.
+    After the conversion using gzip compression they had about 17MB.
 
 ![Tests Made in 28/01/2024](https://github.com/mathsv/ExcelToCSV/blob/main/test_imgs/tests_2024-01-28_001516.png "Test Made In Windows Powershell")
