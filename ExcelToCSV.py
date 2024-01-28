@@ -3,7 +3,6 @@ import pathlib as plib
 from datetime import datetime
 
 print(f"{datetime.now().strftime("%H:%M:%S")} - Initializing Script")
-
 class XlsToCsv():
     def __init__(self, filepath:list|str, destination_path="", decimal=",", sep=";", encoding="utf_16", compression_method="gzip") -> None:
         if isinstance(filepath, str):
@@ -33,7 +32,7 @@ class XlsToCsv():
         print(f"{datetime.now().strftime("%H:%M:%S")} - File {self.__filename[:-4]} successfully loaded!")
 
         print(f"{datetime.now().strftime("%H:%M:%S")} - Converting File")
-        newPath = plib.Path(f'{self.__destination_path}\\{self.__filename}.gz')
+        newPath = plib.Path(f'{self.__destination_path}/{self.__filename}.gz')
         read_file.to_csv(newPath, index = None, header=True, decimal=self.__decimal, sep=self.__separator,
                          encoding=self.__encoding,compression=self.__compression_options)
         print(f"{datetime.now().strftime("%H:%M:%S")} - Files {self.__filename} sucessfully converted!")
