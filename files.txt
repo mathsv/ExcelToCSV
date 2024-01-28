@@ -1,2 +1,2 @@
-c:\dummy_file.xlsx
-C:\dummy_file_02.xlsx
+\dummy_file.xlsx
+\dummy_file_02.xlsx
