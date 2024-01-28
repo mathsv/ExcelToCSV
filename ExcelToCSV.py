@@ -19,3 +19,14 @@ class XlsToCsv():
         self.__encoding = encoding
         self.__compression_options = dict(method=compression_method)
         plib.Path(destination_path).mkdir(parents=True, exist_ok=True)
+
+    def converter(self):
+        print(f"{datetime.now().strftime("%H:%M:%S")} - Loading File")
+        read_file = pd.read_excel(plib.Path(self.__filepath))
+        print(f"{datetime.now().strftime("%H:%M:%S")} - File {self.__filename[:-4]} successfully loaded!")
+
+        print(f"{datetime.now().strftime("%H:%M:%S")} - Converting File")
+        newPath = plib.Path(f'{self.__destination_path}\\{self.__filename}.gz')
+        read_file.to_csv(newPath, index = None, header=True, decimal=self.__decimal, sep=self.__separator,
+                         encoding=self.__encoding,compression=self.__compression_options)
+        print(f"{datetime.now().strftime("%H:%M:%S")} - Files {self.__filename} sucessfully converted!")
