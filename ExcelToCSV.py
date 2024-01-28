@@ -5,8 +5,15 @@ from datetime import datetime
 print(f"{datetime.now().strftime("%H:%M:%S")} - Initializing Script")
 
 class XlsToCsv():
-    def __init__(self, filepath, destination_path="", decimal=",", sep=";", encoding="utf_16", compression_method="gzip") -> None:
-        self.setConverter(filepath, destination_path, decimal, sep, encoding, compression_method)
+    def __init__(self, filepath:list|str, destination_path="", decimal=",", sep=";", encoding="utf_16", compression_method="gzip") -> None:
+        if isinstance(filepath, str):
+            self.setConverter(filepath, destination_path, decimal, sep, encoding, compression_method)
+            self.converter()
+        elif isinstance(filepath, list):
+            for current_file in filepath:
+                self.setConverter(current_file, destination_path, decimal, sep, encoding, compression_method)
+                self.converter()
+        
 
     def setConverter(self, filepath, destination_path="", decimal=",", sep=";", encoding="utf_16", compression_method="gzip"):
         print(f"{datetime.now().strftime("%H:%M:%S")} - Configuring Converter")
